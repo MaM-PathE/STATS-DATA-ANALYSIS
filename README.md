@@ -25,7 +25,7 @@ La matrice de corrélation entre les types de crimes révèle plusieurs relation
 
 ![B Figure 2024-12-23 161305](https://github.com/user-attachments/assets/8c7e9f31-1551-4144-b4aa-5a8655d135e0)
 
-Évolution des séquestrations
+1. Évolution des séquestrations
 Les données montrent une fluctuation des cas de séquestration sur la période analysée, avec une moyenne mensuelle variant entre 12 et 18 cas. Sur cinq ans, on observe une légère augmentation (+8%), particulièrement marquée en milieu urbain. Les années 2022 et 2023 ont enregistré des pics saisonniers, souvent corrélés à des contextes socio-économiques tendus.
 
 2. Menaces ou chantages à des fins diverses
