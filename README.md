@@ -1,4 +1,4 @@
-# 📊 Analyse Statistique Multidimensionnelle ( Jupyter Notebook & Spyder via fichiers text and png)
+# 📊 Analyse Statistique Multidimensionnelle 
 
 ## 🎯 Objectifs de l'Étude
 Explorer et comprendre des problématiques sociétales et environnementales à travers des techniques d'analyse statistique avancées.
