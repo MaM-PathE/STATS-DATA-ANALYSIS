@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct  2 18:47:35 2024
+
+@author: cheik
+"""
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.colors as mcolors  
+import matplotlib.cm as cm  
+
+file_path = r'C:/Users/cheik/OneDrive/Bureau/CO2.xlsx'
+df = pd.read_excel(file_path, sheet_name='Data')
+
+
+df_cleaned = df.dropna(how='all') 
+df_cleaned = df_cleaned.dropna(axis=1, how='all')  
+
+df_cleaned.columns = df_cleaned.columns.str.strip()
+
+
+df_cleaned.columns = df_cleaned.iloc[0]  
+df_cleaned = df_cleaned.drop(2)  
+
+
+df_cleaned = df_cleaned.reset_index(drop=True)
+df_cleaned.columns.name = None 
+
+
+df_cleaned.iloc[:, 2:] = df_cleaned.iloc[:, 2:].apply(pd.to_numeric, errors='coerce')
+
+df_cleaned['Average_CO2'] = df_cleaned.iloc[:, 2:].mean(axis=1)
+
+%matplotlib inline
+
+shapefile_path = r'C:/Users/cheik/OneDrive/Bureau/maps/ne_110m_admin_0_countries.shp'
+world = gpd.read_file(shapefile_path)
+
+
+print(merged_data[['NAME', 'Average_CO2']].head())
+
+
+merged_data['CO2_classes'] = pd.qcut(merged_data['Average_CO2'], q=4, labels=False)
+
+fig, ax = plt.subplots(1, 1, figsize=(15, 10))
+
+
+cmap = 'YlOrRd'
+norm = mcolors.Normalize(vmin=merged_data['Average_CO2'].min(), vmax=merged_data['Average_CO2'].max())
+
+merged_data.plot(column='Average_CO2', ax=ax, legend=False, cmap=cmap, scheme='quantiles', k=4)
+
+sm = cm.ScalarMappable(cmap=cmap, norm=norm)
+sm.set_array([])
+
+
+cbar = fig.colorbar(sm, ax=ax, orientation='horizontal', pad=0.05)  
+cbar.set_label("Émissions moyennes de CO2 (kt)\nSheikh")
+
+
+plt.title('Émissions moyennes (1990-2020) de CO2 par pays', fontsize=15)
+plt.show()
