@@ -1,7 +1,7 @@
 # 📊 Analyse Statistique Multidimensionnelle
 
 ## 🎯 Objectifs de l'Étude
-Explorer et comprendre des problématiques sociétales et environnementales françaises à travers des techniques d'analyse statistique avancées.
+Explorer et comprendre des problématiques sociétales et environnementales à travers des techniques d'analyse statistique avancées.
 
 ## 🔍 Axes d'Analyse
 
